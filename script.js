@@ -29,24 +29,34 @@ function validateEmail(email) {
 }
 
 RegBtn.onclick = () => {
+  let stage1 = false;
+  let stage2 = false;
+  let stage3 = false;
+  let stage4 = false;
+
   if (passWd.value == "" || passWd.value.length < 6) {
     passWd.classList.add("is-invalid");
   } else {
     passWd.classList.add("is-valid");
+    stage1 = true;
   }
   if (firstName.value == "") {
     firstName.classList.add("is-invalid");
   } else {
     firstName.classList.add("is-valid");
+    stage2 = true;
   }
   if (lastName.value == "") {
     lastName.classList.add("is-invalid");
   } else {
     lastName.classList.add("is-valid");
+    stage3 = true;
   }
   if (validateEmail(emCK.value) == true) {
     emCK.classList.add("is-valid");
+    stage4 = true;
   } else {
     emCK.classList.add("is-invalid");
   }
+  stage1 && stage2 && stage3 && stage4 && alert("Registered successfully");
 };
